@@ -1,0 +1,183 @@
+@import url('https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Rubik:ital,wght@0,300..900;1,300..900&family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+
+@layer base {
+  :root {
+    /* Modern Brand Colors - Deep Tech Aesthetic */
+    --brand-primary: 250 84% 60%; /* Modern purple #6366f1 */
+    --brand-secondary: 217 91% 60%; /* Electric blue #3b82f6 */
+    --brand-accent: 142 76% 36%; /* Tech green #10b981 */
+    --brand-neutral: 220 13% 18%; /* Dark slate #1e293b */
+    --brand-surface: 220 13% 8%; /* Almost black #0f172a */
+    
+    /* Semantic Colors */
+    --background: 0 0% 100%;
+    --foreground: 220 13% 18%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 220 13% 18%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 13% 18%;
+
+    --primary: 250 84% 60%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 220 14% 96%;
+    --secondary-foreground: 220 13% 18%;
+
+    --muted: 220 14% 96%;
+    --muted-foreground: 220 9% 46%;
+
+    --accent: 142 76% 36%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
+    --ring: 250 84% 60%;
+
+    --radius: 0.75rem;
+
+    /* Modern gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(var(--brand-primary)), hsl(var(--brand-secondary)));
+    --gradient-accent: linear-gradient(135deg, hsl(var(--brand-accent)), hsl(var(--brand-secondary)));
+    --gradient-surface: linear-gradient(145deg, hsl(var(--brand-surface)), hsl(var(--brand-neutral)));
+    --shadow-modern: 0 25px 50px -12px hsl(var(--brand-primary) / 0.25);
+    --shadow-glass: 0 8px 32px hsl(var(--brand-primary) / 0.12);
+    --glow-primary: 0 0 20px hsl(var(--brand-primary) / 0.3);
+  }
+
+  .dark {
+    --background: 220 13% 8%;
+    --foreground: 0 0% 98%;
+
+    --card: 220 13% 10%;
+    --card-foreground: 0 0% 98%;
+
+    --popover: 220 13% 8%;
+    --popover-foreground: 0 0% 98%;
+
+    --primary: 250 84% 60%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 220 13% 15%;
+    --secondary-foreground: 0 0% 98%;
+
+    --muted: 220 13% 15%;
+    --muted-foreground: 220 9% 65%;
+
+    --accent: 142 76% 36%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 62% 50%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 220 13% 15%;
+    --input: 220 13% 15%;
+    --ring: 250 84% 60%;
+  }
+}
+
+
+
+*{
+        font-family: "Jost";
+        font-weight: 400;
+        font-style: normal;
+        scroll-behavior: smooth;
+}
+
+h1,h2,h3{
+        font-family: "Urbanist";
+        font-weight: 500;
+        font-style: normal;
+        scroll-behavior: smooth;
+}
+@layer components {
+  .gradient-primary {
+    background: var(--gradient-primary);
+  }
+  
+  .gradient-accent {
+    background: var(--gradient-accent);
+  }
+  
+  .gradient-surface {
+    background: var(--gradient-surface);
+  }
+  
+  .text-gradient {
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  .shadow-modern {
+    box-shadow: var(--shadow-modern);
+  }
+  
+  .shadow-glass {
+    box-shadow: var(--shadow-glass);
+  }
+  
+  .glow-primary {
+    box-shadow: var(--glow-primary);
+  }
+  
+  .glass-effect {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+  
+  .code-font {
+    font-family: 'JetBrains Mono', monospace;
+  }
+}
+
+.portfolio-section {
+  position: relative;
+  width: 100%;
+  height: 400px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.bg-video, .imgss{
+   position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+.bg-video video  {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 2;
+}
+
+.content {
+  position: relative;
+  z-index: 3;
+}
