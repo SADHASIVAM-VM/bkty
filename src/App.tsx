@@ -20,9 +20,9 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/services" element={<Services />} />
-            <Route path="/portfolio" element={<Portfolio />} />
+            <Route path="/projects" element={<Portfolio />} />
             <Route path="/about" element={<About />} />
-            <Route path="/internship" element={<Internship />} />
+            <Route path="/careers" element={<Internship />} />
             <Route path="/contact" element={<Contact />} />
           </Routes>
         </AnimatePresence>

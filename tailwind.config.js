@@ -26,7 +26,10 @@ export default {
 				'backed_scroll': 'backed_scroll 70s linear infinite',
 				'brandscroll': 'brandscroll 10s linear infinite',
 
-			}
+			},
+       boxShadow: {
+        neon: '0 0 20px rgba(0,255,255,0.3)',
+      }
       }
   },
   plugins: [],

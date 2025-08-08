@@ -12,7 +12,8 @@ import {
   BarChart3,
   Shield,
   Lightbulb,
-  Globe
+  Globe,
+  UsersRound
 } from 'lucide-react';
 
 const About = () => {
@@ -97,25 +98,79 @@ const About = () => {
   ];
 
   return (
-    <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-      className="pt-24 lg:pt-36 px-3"
+    <div
+    
+      className="mt-[-14px]"
     >
       {/* Hero Section */}
-        {/* About Company */}
-      <section className="section max-w-7xl mx-auto md:text-center space-y-4 ">
-        <h2 className="text-3xl md:text-5xl  font-semibold leading-tight">About <span className='text-gradient'>Brackety</span></h2>
-        <p className='text-xl lg:text-3xl font-semibold text-black/80 leading-relaxed  '>“Our mission is to provide affordable and scalable digital solutions to transform the business of our customers.”</p>
-        <p className="text-[16px] lg:text-xl font-medium text-black/40 leading-relaxed  ">
-          At <strong className='text-orange-400 '>Brackety</strong>, we empower businesses by transforming traditional operations into modern, digital experiences.
+        
+       
+
+      <section className=" lg:h-[550px] min-h-[350px] flex-col flex items-center justify-center space-y-4 bg-black">
+      <div className="pb-7">
+           <div className="flex p-2 justify-self-center">
+          <p className=' text-white inline-flex bg-[#2c2c2c] p-1 px-2 justify-self-center items-center gap-2  text-sm rounded-xl border border-[#27282c]'><UsersRound size={16}/> About Us</p>
+        </div>
+
+        <motion.h2  initial={{ y: 50, opacity: 0 }}
+              whileInView={{ y: 0, opacity: 1 }}
+              transition={{ duration: 0.6, delay: 0.1 }} className="max-w-4xl text-center mx-auto text-4xl p-5 leading-tight bg-gradient-to-b from-white to-gray-500 text-transparent bg-clip-text sm:text-5xl lg:text-6xl font-black mb-6">
+          Remote-Native Designers & Developers, Everywhere
+        </motion.h2>
+
+        <motion.p  initial={{ y: 50, opacity: 0 }}
+              whileInView={{ y: 0, opacity: 1 }}
+              transition={{ duration: 0.6, delay: 0.2 }} className="text-[14px] text-center md:text-md text-gray-300 max-w-3xl mx-auto leading-relaxed ">
+
           We work closely with small business owners, startups, and legacy companies to deliver software and smart solutions that thrive in today’s fast-paced technology world.
-        </p>
+        </motion.p>
+      </div>
       </section>
 
+
+
+ <section className="bg-white py-20">
+      <div className="max-w-6xl mx-auto px-4 text-center">
+        {/* Badge */}
+        <div className="inline-block bg-violet-100 text-violet-700 text-xs font-semibold px-3 py-1 rounded-full mb-4">
+          🚀 Excellence in Delivery
+        </div>
+
+        {/* Heading */}
+        <h2 className="text-3xl max-w-4xl mx-auto  md:text-4xl font-bold text-gray-900 leading-snug">
+          We specialize in custom software and digital marketing services
+        </h2>
+
+        {/* Subtext */}
+        <p className="mt-4 text-gray-500 max-w-6xl mx-auto  text-base">
+          From innovative web apps to result-driven campaigns, we empower
+          startups and enterprises with scalable digital solutions tailored to
+          their goals.
+        </p>
+
+        {/* Stats */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 mt-12">
+          <div className="rounded-2xl border border-gray-200 px-6 py-8">
+            <h3 className="text-3xl font-bold text-gray-900 mb-2">5+</h3>
+            <p className="text-gray-600 text-sm">Years of Development Expertise</p>
+          </div>
+
+          <div className="rounded-2xl border border-gray-200 px-6 py-8">
+            <h3 className="text-3xl font-bold text-gray-900 mb-2">10+</h3>
+            <p className="text-gray-600 text-sm">Global Marketing Clients</p>
+          </div>
+
+          <div className="rounded-2xl border border-gray-200 px-6 py-8">
+            <h3 className="text-3xl font-bold text-gray-900 mb-2">250+</h3>
+            <p className="text-gray-600 text-sm">Successful Projects Delivered</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
       {/* Image Section */}
-      <section className="py-16 mt-6 mx-auto bg-black rounded-3xl max-w-7xl">
+      <section className="py-16 mt-6 mx-auto bg-black md:rounded-3xl max-w-7xl">
         <img
           src="/cms.png"
           alt="Brackety Team"
@@ -134,12 +189,12 @@ const About = () => {
               className="space-y-8"
             >
               <div className="flex items-center space-x-4">
-                <div className="w-16 h-16 rounded-2xl bg-gradient-to-r from-blue-500 to-blue-700 flex items-center justify-center">
-                  <Target className="w-8 h-8 text-white" />
+                <div className="w-16 h-16 rounded-xl shadow-md bg-white flex items-center border border-gray-100 justify-center">
+                  <Target className="w-8 h-8 text-gray-700" />
                 </div>
                 <h2 className="text-2xl md:text-3xl font-bold text-gray-900">Our Mission</h2>
               </div>
-              <p className="text-[16px] md:text-lg text-gray-600 leading-relaxed">
+              <p className="mt-4 text-gray-500 max-w-6xl mx-auto  text-base">
                 To empower businesses of all sizes to thrive in the digital age by providing 
                 innovative software solutions, exceptional web experiences, and strategic digital 
                 marketing that drives measurable growth and success.
@@ -153,12 +208,12 @@ const About = () => {
               className="space-y-8"
             >
               <div className="flex items-center space-x-4">
-                <div className="w-16 h-16 rounded-2xl bg-gradient-to-r from-purple-500 to-purple-700 flex items-center justify-center">
-                  <Eye className="w-8 h-8 text-white" />
+                <div className="w-16 h-16 rounded-xl shadow-md bg-white flex items-center border border-gray-100 justify-center">
+                  <Eye className="w-8 h-8 text-gray-700" />
                 </div>
                 <h2 className="text-2xl md:text-3xl font-bold text-gray-900">Our Vision</h2>
               </div>
-              <p className="text-[16px] md:text-lg text-gray-600 leading-relaxed">
+              <p className="mt-4 text-gray-500 max-w-6xl mx-auto  text-base">
                 To be the leading digital transformation partner that bridges the gap between 
                 traditional business practices and modern technology, creating a world where 
                 every business can leverage digital innovation to achieve extraordinary results.
@@ -168,23 +223,25 @@ const About = () => {
         </div>
       </section>
 
- <section className="section bg-white py-16">
+ <section className="section bg-white max-w-7xl mx-auto py-16">
         <h2 className="text-4xl lg:text-5xl font-bold leading-tigh mb-5 text-center">Our <span className='text-primary my-6'>Workflow</span></h2>
        
 
         <div className="grid gap-6 md:grid-cols-2 ">
 
             {
-                workflow.map((e)=>(
-                    <div key={e.id} className=
+                workflow.map((e,index)=>(
+                    <motion.div  initial={{ y: 50, opacity: 0 }}
+              whileInView={{ y: 0, opacity: 1 }}
+              transition={{ duration: 0.6, delay: 0.1*index }} key={e.id} className=
                     {`${e.id == 1 &&"bg-yellow-50 border-yellow-200 -rotate-2"} space-y-3 border rounded-2xl h-56 p-5   `}>
                     <div className={"flex items-center gap-3"}>
                         <img src={e.icon} className='w-8 bg-yellow-200 rounded-full p-1' alt="" />
                         <h2 className='text-xl font-semibold'>{e.title}</h2>
                     </div>
 
-                    <p className='text-gray-500 text-[14px] md:text-[16px]'>{e.description}</p>
-                </div>
+                    <p className='mt-4 text-gray-500 max-w-6xl mx-auto   text-base'>{e.description}</p>
+                </motion.div>
                 ))
                 
             }
@@ -206,7 +263,7 @@ const About = () => {
             <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-6">
               Our <span className="text-gradient">Values</span>
             </h2>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+            <p className="text-gray-500 max-w-2xl mx-auto text-base md:text-lg">
               The principles that guide our work and define our culture
             </p>
           </motion.div>
@@ -224,7 +281,7 @@ const About = () => {
                   <value.icon className="w-8 h-8 text-white" />
                 </div>
                 <h3 className="text-xl font-bold text-gray-900 mb-4">{value.title}</h3>
-                <p className="text-gray-600 leading-relaxed">{value.description}</p>
+                <p className="text-gray-500 max-w-2xl mx-auto text-base md:text-md">{value.description}</p>
               </motion.div>
             ))}
           </div>
@@ -234,7 +291,7 @@ const About = () => {
     
 
       {/* Achievements */}
-      <section className="py-24 bg-gradient-to-r from-blue-800 to-purple-800 text-white">
+      <section className="py-24 bg-gradient-to-b from-black via-black/90 to-black/80 text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ y: 50, opacity: 0 }}
@@ -245,7 +302,7 @@ const About = () => {
             <h2 className="text-3xl lg:text-4xl font-bold mb-6">
               Our Achievements
             </h2>
-            <p className="text-lg max-w-2xl mx-auto leading-relaxed">
+            <p className="text-gray-300 max-w-2xl mx-auto text-base md:text-lg">
               Recognition and results that demonstrate our commitment to excellence
             </p>
           </motion.div>
@@ -263,7 +320,7 @@ const About = () => {
                   <achievement.icon className="w-8 h-8 text-white" />
                 </div>
                 <h3 className="text-lg font-bold mb-2">{achievement.title}</h3>
-                <p className="text-blue-200 text-sm leading-relaxed">{achievement.description}</p>
+                <p className="text-gray-400 max-w-2xl mx-auto text-base md:text-lg">{achievement.description}</p>
               </motion.div>
             ))}
           </div>
@@ -282,7 +339,7 @@ const About = () => {
             <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-6">
               Our <span className="text-gradient">Expertise</span>
             </h2>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+            <p className="text-gray-500 max-w-2xl mx-auto text-base md:text-lg">
               Deep knowledge across multiple domains to serve all your digital needs
             </p>
           </motion.div>
@@ -319,16 +376,17 @@ const About = () => {
             <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-6">
               Ready to Work <span className="text-gradient">Together</span>?
             </h2>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto leading-relaxed">
+            <p className="text-gray-500 max-w-2xl mx-auto text-base md:text-lg">
               Let's discuss how our team can help transform your business and achieve your digital goals.
             </p>
-            <button className="btn-primary text-white px-8 py-4 rounded-full font-semibold text-sm lg:text-lg">
+            <button className="btn-primary text-white px-8 py-4 rounded-full font-semibold text-sm ">
               Get In Touch
             </button>
           </motion.div>
+          <img src="/map.webp" alt="" />
         </div>
       </section>
-    </motion.div>
+    </div>
   );
 };
 

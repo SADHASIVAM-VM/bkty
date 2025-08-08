@@ -152,14 +152,12 @@ const Internship = () => {
   ];
 
   return (
-    <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-      className="pt-16 lg:pt-20"
+    <div
+      
+      className="mt-[-12px]"
     >
       {/* Hero Section */}
-      <section className="py-24 bg-[url('/career.webp')] bg-center bg-cover bg-no-repeat">
+      <section className="py-24 bg-[url('/career.webp')] min-h-[350px] lg:h-[550px] bg-center bg-cover bg-no-repeat">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 ">
           <motion.div
             initial={{ y: 50, opacity: 0 }}
@@ -170,20 +168,22 @@ const Internship = () => {
             <div className="w-20 h-20 rounded-2xl bg-gradient-to-r from-gray-900 to-purple-600 flex items-center justify-center mx-auto mb-8">
               <GraduationCap className="w-10 h-10 text-white" />
             </div>
-            <h1 className="text-2xl md:text-4xl lg:text-6xl font-bold inline mb-3 bg-orange-400 text-white rounded-xl px-4">
+            <h1 className="text-center max-w-4xl mx-auto text-4xl leading-tight bg-gradient-to-b from-black to-gray-500 text-transparent bg-clip-text sm:text-5xl lg:text-6xl font-black mb-6">
             Careers
             </h1>
-            <p className="text-[16px] md:text-2xl text-gray-900 max-w-3xl mx-auto leading-relaxed">
+            <p className="text-[16px] md:text-md text-gray-600 max-w-3xl mx-auto leading-relaxed">
               Join our comprehensive internship program and transform from beginner to industry-ready professional 
               in software development or digital marketing.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mt-8">
-              <button className="btn-primary text-white px-8 py-4 rounded-full font-semibold text-sm lg:text-lg flex items-center space-x-2">
+            <motion.div  initial={{ y: 50, opacity: 0 }}
+              whileInView={{ y: 0, opacity: 1 }}
+              transition={{ duration: 0.6, delay: 0.2 }} className="flex flex-col sm:flex-row gap-4 justify-center items-center mt-8">
+              <button className="bg-black shadow-sm shadow-white text-white px-8 py-4 rounded-full font-semibold text-sm  flex items-center space-x-2">
                 <span>Apply Now</span>
                 <ArrowRight className="w-5 h-5" />
               </button>
             
-            </div>
+            </motion.div>
           </motion.div>
         </div>
       </section>
@@ -197,10 +197,10 @@ const Internship = () => {
             transition={{ duration: 0.8 }}
             className="text-center mb-16"
           >
-            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 mb-6">
+            <h2 className="text-xl md:text-3xl lg:text-5xl font-bold mb-6 leading-tight">
               Choose Your <span className="text-gradient">Track</span>
             </h2>
-            <p className="text-[16px] md:text-2xl text-gray-600 max-w-2xl mx-auto">
+            <p className="text-[16px] text-gray-500 md:text-lg max-w-2xl mx-auto leading-relaxed">
               Two specialized tracks designed to prepare you for high-demand careers in tech
             </p>
           </motion.div>
@@ -289,45 +289,55 @@ const Internship = () => {
       </section>
 
       {/* Benefits */}
-      <section className="py-14 md:py-24 bg-gray-50">
+      <section className="py-14 md:py-24 bg-gradient-to-br from-blue-50 to-transpraent">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ y: 50, opacity: 0 }}
             whileInView={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.8 }}
-            className="md:text-center mb-6 md:mb-16"
+            className="text-center mb-6 md:mb-16"
           >
-            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 mb-6">
-              Program <span className="text-gradient">Benefits</span>
+            <h2 className="text-xl md:text-3xl lg:text-5xl font-bold mb-6 leading-tight">
+              Program Benefits
             </h2>
-            <p className="text-[16px] md:text-lg text-gray-600 max-w-2xl mx-auto">
+            <p className="text-[16px] text-gray-500 md:text-lg max-w-2xl mx-auto leading-relaxed">
               More than just learning - we provide comprehensive support for your career success
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {benefits.map((benefit, index) => (
-              <motion.div
-                key={benefit.title}
-                initial={{ y: 50, opacity: 0 }}
-                whileInView={{ y: 0, opacity: 1 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                className="card-hover bg-white rounded-2xl p-8 border border-gray-200 text-center"
-              >
-                <div className="w-16 h-16 rounded-2xl bg-gradient-to-r from-blue-500 to-purple-600 flex items-center justify-center mx-auto mb-6">
-                  <benefit.icon className="w-8 h-8 text-white" />
-                </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-4">{benefit.title}</h3>
-                <p className="text-gray-600 leading-relaxed text-sm md:text-md ">{benefit.description}</p>
-              </motion.div>
-            ))}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+           {benefits.map((benefit, index) => (
+  <motion.div
+    key={benefit.title}
+    initial={{ y: 50, opacity: 0 }}
+    whileInView={{ y: 0, opacity: 1 }}
+    transition={{ duration: 0.6, delay: index * 0.1 }}
+    className="bg-white rounded-xl shadow-sm h-[250px]  items-center flex flex-col p-6 md:p-8 border border-gray-100 text-center"
+  >
+    {/* Icon Container */}
+    <div className="w-12 h-12 md:w-14 md:h-14 flex items-center justify-center mx-auto mb-4 md:mb-6 rounded-lg border border-gray-100 shadow-md ">
+      <benefit.icon className="w-6 h-6 md:w-7 md:h-7 text-gray-800" />
+    </div>
+
+    {/* Title */}
+    <h3 className="text-md  font-semibold text-gray-900 mb-2">
+      {benefit.title}
+    </h3>
+
+    {/* Description */}
+    <p className="text-sm md:text-base text-gray-600 leading-relaxed">
+      {benefit.description}
+    </p>
+  </motion.div>
+))}
+
           </div>
         </div>
       </section>
 
  
       {/* Requirements & Process */}
-      <section className="py-24 bg-gradient-to-br from-blue-50 to-purple-50">
+      <section className="py-24 bg-black text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
             {/* Requirements */}
@@ -336,14 +346,14 @@ const Internship = () => {
               whileInView={{ x: 0, opacity: 1 }}
               transition={{ duration: 0.8 }}
             >
-              <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-8">
+              <h2 className="text-2xl md:text-3xl font-bold text-white mb-8">
                 Program <span className="text-gradient">Requirements</span>
               </h2>
               <div className="space-y-4">
                 {requirements.map((requirement, index) => (
                   <div key={index} className="flex items-start space-x-3">
                     <CheckCircle className="w-6 h-6 text-green-500 flex-shrink-0 mt-0.5" />
-                    <span className="text-gray-700 text-sm md:text-md leading-relaxed">{requirement}</span>
+                    <span className="text-gray-300 text-sm md:text-md leading-relaxed">{requirement}</span>
                   </div>
                 ))}
               </div>
@@ -355,7 +365,7 @@ const Internship = () => {
               whileInView={{ y: 0, opacity: 1 }}
               transition={{ duration: 0.8 }}
             >
-              <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-8">
+              <h2 className="text-2xl md:text-3xl font-bold text-white mb-8">
                 Application <span className="text-gradient">Process</span>
               </h2>
               <div className="space-y-6">
@@ -365,8 +375,8 @@ const Internship = () => {
                       {step.step}
                     </div>
                     <div>
-                      <h3 className="text-md md:text-lg font-bold text-gray-900 mb-2">{step.title}</h3>
-                      <p className="text-gray-600 leading-relaxed text-sm md:text-md">{step.description}</p>
+                      <h3 className="text-md md:text-lg font-bold text-gray-200 mb-2">{step.title}</h3>
+                      <p className="text-gray-400 leading-relaxed text-sm md:text-md">{step.description}</p>
                     </div>
                   </div>
                 ))}
@@ -377,8 +387,8 @@ const Internship = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-24 bg-gradient-to-r from-blue-800 to-purple-800 text-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 md:text-center">
+      <section className="py-24 bg-white text-black">
+        <div className="max-w-7xl text-center mx-auto px-4 sm:px-6 lg:px-8 md:text-center">
           <motion.div
             initial={{ y: 50, opacity: 0 }}
             whileInView={{ y: 0, opacity: 1 }}
@@ -393,18 +403,18 @@ const Internship = () => {
               transform your career and join the tech industry.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-              <button className="bg-white text-blue-800 px-8 py-4 rounded-full font-semibold text-sm md:text-lg hover:bg-gray-100 transition-colors flex items-center space-x-2">
+              <button className="bg-black text-white px-8 py-4 rounded-full font-semibold text-sm  hover:bg-black/50 transition-colors flex items-center space-x-2">
                 <span>Apply for Internship</span>
                 <ArrowRight className="w-5 h-5" />
               </button>
-              <button className="border-2 border-white text-white px-8 py-4 rounded-full font-semibold text-sm md:text-lg hover:bg-white hover:text-blue-800 transition-colors">
+              <button className="border-2 border-black/50 text-black px-8 py-4 rounded-full font-semibold text-sm  hover:bg-white hover:text-black/50 transition-colors">
                 Schedule Info Session
               </button>
             </div>
           </motion.div>
         </div>
       </section>
-    </motion.div>
+    </div>
   );
 };
 

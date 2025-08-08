@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { Menu, X, Code, Phone } from 'lucide-react';
+import { Menu, X, Phone } from 'lucide-react';
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -10,57 +10,60 @@ const Header = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 700);
+      setScrolled(window.scrollY > 580); // change threshold if needed
     };
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [location.pathname]);
+
+
   const navItems = [
     { name: 'Home', path: '/' },
+    { name: 'Projects', path: '/projects' },
     { name: 'Services', path: '/services' },
-    { name: 'Portfolio', path: '/portfolio' },
-    { name: 'About', path: '/about' },
-    { name: 'Internship', path: '/internship' },
     { name: 'Contact', path: '/contact' },
+    { name: 'About Us', path: '/about' },
+    { name: 'Careers', path: '/careers' },
   ];
 
   return (
-    <motion.header
-      initial={{ y: -100 }}
-      animate={{ y: 0 }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled ? 'bg-white/95 backdrop-blur-md text-black' : 'bg-black text-white'
+    <header
+      
+      className={` top-0 left-0 right-0 z-50   transition-all duration-300  bg-black text-white ${
+        scrolled && 'fixed transition-all w-full duration-300'
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-14 lg:h-18">
+        <div className="flex justify-between items-center h-16 lg:h-20">
+          
           {/* Logo */}
-           <div className="flex items-center space-x-1">
-                      <div className="w-8 h-8  rounded-lg flex items-center justify-center">
-                        {/* <Code2 size={18} className="text-white" /> */}
-                        <img src="/logo.png" className="w-6" alt="" />
-                      </div>
-                      <span className="text font-bold text-sm ">Brackety</span>
-                    </div>
+          <div className="flex items-center space-x-2">
+            <img src="/logo.png" alt="Logo" className="w-6" />
+            <span className="font-semibold text-sm tracking-tight">Brackety</span>
+          </div>
 
           {/* Desktop Navigation */}
-          <nav className="hidden lg:flex items-center space-x-8">
+          <nav className="hidden lg:flex items-center space-x-6">
             {navItems.map((item) => (
               <Link
                 key={item.name}
                 to={item.path}
-                className={`relative px-3 py-2 text-sm font-medium transition-colors duration-200 ${
+                className={`relative text-sm font-medium px-2 py-1 transition-colors duration-200 ${
                   location.pathname === item.path
-                    ? 'text-blue-700'
-                    : `${!scrolled ? "text-white" : "text-black" } hover:text-blue-800`
+                    ? 'text-white'
+                    : scrolled ? 'text-white/80' : 'text-white hover:text-gray-300'
                 }`}
               >
                 {item.name}
                 {location.pathname === item.path && (
-                  <motion.div
-                    layoutId="activeTab"
-                    className="absolute -bottom-1 left-7 right-0 w-2 h-2 rounded-full bg-gradient-to-r from-orange-300 to-orange-600"
+                  <motion.span
+                    layoutId="activeLink"
+                    className="absolute left-1/2 -bottom-1 -translate-x-1/2 w-1.5 h-1.5 rounded-full bg-gradient-to-r from-orange-400 to-orange-600"
                   />
                 )}
               </Link>
@@ -68,58 +71,60 @@ const Header = () => {
           </nav>
 
           {/* CTA Button */}
-          <div className="hidden lg:flex items-center space-x-4">
+          <div className="hidden lg:flex items-center">
             <Link
               to="/contact"
-              className="btn-primary text-white px-6 py-2 rounded-full font-medium flex items-center space-x-2"
+              className="bg-white text-black px-4 py-2 rounded-full text-sm font-semibold flex items-center space-x-2 shadow-sm hover:bg-gray-100 transition"
             >
               <Phone className="w-4 h-4" />
-              <span>Free Consultation</span>
+              <span>Get in Touch</span>
             </Link>
           </div>
 
-          {/* Mobile menu button */}
+          {/* Mobile Menu Toggle */}
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className={`lg:hidden p-2 rounded-md  transition-colors ${!scrolled ? "text-white hover:text-white/70":"text-black hover:text-black/70"}`}
+            className={`lg:hidden p-2 transition-colors
+           stext-white hover:text-gray-300`}
           >
             {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </button>
         </div>
 
-        {/* Mobile Navigation */}
+        {/* Mobile Menu */}
         <motion.div
           initial={false}
-          animate={{ height: isOpen ? 'auto' : 0 }}
-          className="lg:hidden overflow-hidden bg-white  backdrop-blur-md rounded-lg my-2"
+          animate={{ height: isOpen ? 'fit-content' : 0 }}
+          className="overflow-hidden lg:hidden transition-all  backdrop-blur-md rounded-md m-3 shadow-md "
         >
-          <div className="px-4 py-4 space-y-2">
+          <div className="px-4 py-4  space-y-2">
             {navItems.map((item) => (
               <Link
                 key={item.name}
                 to={item.path}
                 onClick={() => setIsOpen(false)}
-                className={`block px-3 py-2 rounded-md text-base font-medium transition-colors ${
+                className={`block px-3 py-2 rounded-md text-base font-medium transition ${
                   location.pathname === item.path
-                    ? 'text-blue-800 bg-blue-50'
-                    : 'text-gray-700 hover:text-blue-800 hover:bg-gray-50'
+                    ? 'text-black bg-blue-50'
+                    : 'text-gray-300 hover:text-black/70 hover:bg-gray-100'
                 }`}
               >
                 {item.name}
               </Link>
             ))}
+
             <Link
               to="/contact"
               onClick={() => setIsOpen(false)}
-              className="btn-primary text-white px-4 py-2 rounded-full font-medium flex items-center justify-center space-x-2 mt-4"
+              className="w-full inline-flex justify-center items-center bg-white/80 text-black px-4 py-2 rounded-full font-medium mt-4"
             >
-              <Phone className="w-4 h-4" />
-              <span>Free Consultation</span>
+              <Phone className="w-4 h-4 mr-2" />
+              Get in Touch
             </Link>
           </div>
         </motion.div>
       </div>
-    </motion.header>
+    </header>
   );
 };
 

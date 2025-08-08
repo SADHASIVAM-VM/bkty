@@ -10,8 +10,10 @@ import {
   Calendar,
   User,
   Building,
-  FileText
+  FileText,
+  ArrowRight
 } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -103,30 +105,30 @@ const Contact = () => {
   ];
 
   return (
-    <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-      className="pt-16 lg:pt-20"
+    <div
+      
+      className="mt-[-14px]"
     >
       {/* Hero Section */}
-      <section className="py-24 bg-gradient-to-br from-blue-50 via-white to-purple-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ y: 50, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ duration: 0.8 }}
-            className="text-center mb-6 md:mb-16"
-          >
-            <h1 className="text-4xl lg:text-6xl font-bold text-gray-900 mb-6">
-              Get In <span className="text-gradient">Touch</span>
-            </h1>
-            <p className="text-[16px] lg:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-              Ready to transform your business? Let's discuss your project and find the perfect solution together.
-            </p>
-          </motion.div>
+       <section className=" lg:h-[550px] h-[350px] flex-col flex items-center justify-center space-y-4 bg-black">
+      <div className="">
+           <div className="flex p-2 justify-self-center">
+          <p className=' text-white inline-flex bg-[#2c2c2c] p-1 px-2 justify-self-center items-center gap-2  text-sm rounded-xl border border-[#27282c]'><Phone size={14}/> contact</p>
         </div>
+        
+        <motion.h2  initial={{ y: 50, opacity: 0 }}
+              whileInView={{ y: 0, opacity: 1 }}
+              transition={{ duration: 0.6, delay: 0.1 }} className="max-w-4xl text-center mx-auto text-4xl p-5 leading-tight bg-gradient-to-b from-white to-gray-500 text-transparent bg-clip-text sm:text-5xl lg:text-6xl font-black mb-6">
+         Get In Touch
+        </motion.h2>
+
+        <motion.p  initial={{ y: 50, opacity: 0 }}
+              whileInView={{ y: 0, opacity: 1 }}
+              transition={{ duration: 0.6, delay: 0.2 }} className="text-[16px] text-center md:text-md text-gray-300 max-w-3xl mx-auto leading-relaxed ">
+         Ready to transform your business? Let's discuss your project and find the perfect solution together.</motion.p>
+      </div>
       </section>
+
 
       {/* Contact Info */}
       {/* <section className="py-24">
@@ -401,7 +403,7 @@ const Contact = () => {
           </motion.div>
         </div>
       </section>
-    </motion.div>
+    </div>
   );
 };
 

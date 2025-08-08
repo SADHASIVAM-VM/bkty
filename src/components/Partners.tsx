@@ -8,9 +8,9 @@ const brands = Array.from({ length: 14 }, (_, i) => ({
 const BrandSection = () => {
   return (
     <section className="py-6 md:py-12 bg-black text-white">
-      <div className="max-w-7xl mx-auto px-6 md:text-center">
-        <motion.h2 transition={{ ease: "easeOut", duration: 1, delay:1}} initial={{ opacity: 0, y:100 }}   animate={{ opacity: 1, y:0 }} className="text-2xl md:text-3xl max-w-4xl mx-auto lg:text-5xl font-bold mt-6 md:mt-12 mb-4">Powering the Digital Initiatives of <span className='text-orange-400'>Global Companies </span> </motion.h2>
-        <p className='text-[16px] md:text-2xl text-white/70 max-w-4xl mx-auto'>
+      <div className="max-w-7xl mx-auto px-6 text-center">
+        <motion.h2 transition={{ ease: "easeOut", duration: 1, delay:1}} initial={{ opacity: 0, y:100 }}   animate={{ opacity: 1, y:0 }} className=" max-w-4xl mx-auto text-4xl md:text-5xl font-bold text-white/70 mb-4">Powering the Digital Initiatives of <span className='text-orange-400'>Global Companies </span> </motion.h2>
+        <p className='text-gray-300 max-w-2xl mx-auto text-base md:text-lg'>
           By blending in our service excellence, we have designed purpose-specific digital transformation strategies with our cross-domain expertise and years of experience to put our clients ahead of the curve.
 
 

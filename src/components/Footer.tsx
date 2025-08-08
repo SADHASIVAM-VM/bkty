@@ -120,7 +120,7 @@ const Footer = () => {
   };
 
   return (
-    <footer className="gradient-surface text-white">
+    <footer className="bg-gradient-to-b from-black via-black/90 to-black/80 text-white">
       {/* Main Footer */}
       <div className="container max-w-7xl mx-auto px-4 py-16">
         <div className="">
@@ -134,7 +134,7 @@ const Footer = () => {
             </div>
             <span className="text-white font-bold text-sm ">Brackety</span> </div>
             
-            <p className="text-white/70 leading-relaxed text-[16px] md:text-xl max-w-md">
+            <p className="text-white/70 max-w-xl  leading-relaxed text-[16px]  ">
               Empowering organizations with next-generation technology solutions that drive innovation and accelerate growth.
             </p>
             
